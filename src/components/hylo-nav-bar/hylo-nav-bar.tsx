@@ -33,9 +33,9 @@ export class HyloNavBar {
   }
 
   connectedCallback() {
-    console.log(this.isComplete);
-    console.log(this.myText);
-    console.log(this.myService);
+    // console.log(this.isComplete);
+    // console.log(this.myText);
+    // console.log(this.myService);
   }
 
   componentWillLoad() {
@@ -49,7 +49,7 @@ export class HyloNavBar {
 
   render() {
     return (
-      <Host>
+      <Host aria-hidden="true">
         {/* <nav class={'p-4 bg-teal-300'}>
           <ul class={'flex'}>
             <li class={'mx-2'}>Home</li>

@@ -28,6 +28,9 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface MyCounter {
+        "initialCount": number;
+    }
     interface MyTimer {
     }
 }
@@ -50,6 +53,12 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLMyCounterElement extends Components.MyCounter, HTMLStencilElement {
+    }
+    var HTMLMyCounterElement: {
+        prototype: HTMLMyCounterElement;
+        new (): HTMLMyCounterElement;
+    };
     interface HTMLMyTimerElement extends Components.MyTimer, HTMLStencilElement {
     }
     var HTMLMyTimerElement: {
@@ -60,6 +69,7 @@ declare global {
         "hylo-nav-bar": HTMLHyloNavBarElement;
         "hylo-test-cmp": HTMLHyloTestCmpElement;
         "my-component": HTMLMyComponentElement;
+        "my-counter": HTMLMyCounterElement;
         "my-timer": HTMLMyTimerElement;
     }
 }
@@ -85,12 +95,16 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface MyCounter {
+        "initialCount"?: number;
+    }
     interface MyTimer {
     }
     interface IntrinsicElements {
         "hylo-nav-bar": HyloNavBar;
         "hylo-test-cmp": HyloTestCmp;
         "my-component": MyComponent;
+        "my-counter": MyCounter;
         "my-timer": MyTimer;
     }
 }
@@ -101,6 +115,7 @@ declare module "@stencil/core" {
             "hylo-nav-bar": LocalJSX.HyloNavBar & JSXBase.HTMLAttributes<HTMLHyloNavBarElement>;
             "hylo-test-cmp": LocalJSX.HyloTestCmp & JSXBase.HTMLAttributes<HTMLHyloTestCmpElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "my-counter": LocalJSX.MyCounter & JSXBase.HTMLAttributes<HTMLMyCounterElement>;
             "my-timer": LocalJSX.MyTimer & JSXBase.HTMLAttributes<HTMLMyTimerElement>;
         }
     }
