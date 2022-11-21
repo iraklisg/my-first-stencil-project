@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { MyService } from "./components/hylo-nav-bar/hylo-nav-bar";
+import { Todo } from "./components/my-todo-list/my-todo-list";
 export namespace Components {
     interface HyloNavBar {
         "isComplete": boolean;
@@ -31,8 +32,17 @@ export namespace Components {
     interface MyCounter {
         "initialCount": number;
     }
+    interface MyInput {
+        "value": string;
+    }
     interface MyTimer {
     }
+    interface MyTodoList {
+    }
+}
+export interface MyTodoListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMyTodoListElement;
 }
 declare global {
     interface HTMLHyloNavBarElement extends Components.HyloNavBar, HTMLStencilElement {
@@ -59,18 +69,32 @@ declare global {
         prototype: HTMLMyCounterElement;
         new (): HTMLMyCounterElement;
     };
+    interface HTMLMyInputElement extends Components.MyInput, HTMLStencilElement {
+    }
+    var HTMLMyInputElement: {
+        prototype: HTMLMyInputElement;
+        new (): HTMLMyInputElement;
+    };
     interface HTMLMyTimerElement extends Components.MyTimer, HTMLStencilElement {
     }
     var HTMLMyTimerElement: {
         prototype: HTMLMyTimerElement;
         new (): HTMLMyTimerElement;
     };
+    interface HTMLMyTodoListElement extends Components.MyTodoList, HTMLStencilElement {
+    }
+    var HTMLMyTodoListElement: {
+        prototype: HTMLMyTodoListElement;
+        new (): HTMLMyTodoListElement;
+    };
     interface HTMLElementTagNameMap {
         "hylo-nav-bar": HTMLHyloNavBarElement;
         "hylo-test-cmp": HTMLHyloTestCmpElement;
         "my-component": HTMLMyComponentElement;
         "my-counter": HTMLMyCounterElement;
+        "my-input": HTMLMyInputElement;
         "my-timer": HTMLMyTimerElement;
+        "my-todo-list": HTMLMyTodoListElement;
     }
 }
 declare namespace LocalJSX {
@@ -98,14 +122,22 @@ declare namespace LocalJSX {
     interface MyCounter {
         "initialCount"?: number;
     }
+    interface MyInput {
+        "value"?: string;
+    }
     interface MyTimer {
+    }
+    interface MyTodoList {
+        "onTodoCompleted"?: (event: MyTodoListCustomEvent<Todo>) => void;
     }
     interface IntrinsicElements {
         "hylo-nav-bar": HyloNavBar;
         "hylo-test-cmp": HyloTestCmp;
         "my-component": MyComponent;
         "my-counter": MyCounter;
+        "my-input": MyInput;
         "my-timer": MyTimer;
+        "my-todo-list": MyTodoList;
     }
 }
 export { LocalJSX as JSX };
@@ -116,7 +148,9 @@ declare module "@stencil/core" {
             "hylo-test-cmp": LocalJSX.HyloTestCmp & JSXBase.HTMLAttributes<HTMLHyloTestCmpElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "my-counter": LocalJSX.MyCounter & JSXBase.HTMLAttributes<HTMLMyCounterElement>;
+            "my-input": LocalJSX.MyInput & JSXBase.HTMLAttributes<HTMLMyInputElement>;
             "my-timer": LocalJSX.MyTimer & JSXBase.HTMLAttributes<HTMLMyTimerElement>;
+            "my-todo-list": LocalJSX.MyTodoList & JSXBase.HTMLAttributes<HTMLMyTodoListElement>;
         }
     }
 }

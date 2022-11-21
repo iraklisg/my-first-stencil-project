@@ -1,6 +1,7 @@
 import {
   Component, Host, h, State,
 } from '@stencil/core';
+import { Todo } from '../my-todo-list/my-todo-list';
 
 @Component({
   tag: 'hylo-test-cmp',
@@ -14,17 +15,17 @@ export class HyloTestCmp {
 
   @State() count = 0;
 
-  connectedCallback() {
-    this.timer = window.setInterval(() => {
-      // the assignment to `this.currentTime`
-      // will trigger a re-render
-      this.count += 1;
-    }, 1000);
-  }
+  // connectedCallback() {
+  //   this.timer = window.setInterval(() => {
+  //     // the assignment to `this.currentTime`
+  //     // will trigger a re-render
+  //     this.count += 1;
+  //   }, 1000);
+  // }
 
-  disconnectedCallback() {
-    window.clearInterval(this.timer);
-  }
+  // disconnectedCallback() {
+  //   window.clearInterval(this.timer);
+  // }
 
   render() {
     return (
@@ -39,6 +40,11 @@ export class HyloTestCmp {
           {/* without a key, the comonents internal state will not change */}
           <my-counter initialCount={this.count % 2 !== 0 ? 2 : 5} />
 
+        </article>
+        <article class={'bg-blue-100'}>
+          <my-todo-list onTodoCompleted={(ev: CustomEvent<Todo>) => console.log(ev.detail.text)}>
+
+          </my-todo-list>
         </article>
       </Host>
     );
