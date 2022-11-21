@@ -5,7 +5,15 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { MyService } from "./components/hylo-nav-bar/hylo-nav-bar";
 export namespace Components {
+    interface HyloNavBar {
+        "isComplete": boolean;
+        "myService": MyService;
+        "myText": string;
+    }
+    interface HyloTestCmp {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -22,6 +30,18 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLHyloNavBarElement extends Components.HyloNavBar, HTMLStencilElement {
+    }
+    var HTMLHyloNavBarElement: {
+        prototype: HTMLHyloNavBarElement;
+        new (): HTMLHyloNavBarElement;
+    };
+    interface HTMLHyloTestCmpElement extends Components.HyloTestCmp, HTMLStencilElement {
+    }
+    var HTMLHyloTestCmpElement: {
+        prototype: HTMLHyloTestCmpElement;
+        new (): HTMLHyloTestCmpElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -29,10 +49,19 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "hylo-nav-bar": HTMLHyloNavBarElement;
+        "hylo-test-cmp": HTMLHyloTestCmpElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface HyloNavBar {
+        "isComplete"?: boolean;
+        "myService"?: MyService;
+        "myText"?: string;
+    }
+    interface HyloTestCmp {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -48,6 +77,8 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
+        "hylo-nav-bar": HyloNavBar;
+        "hylo-test-cmp": HyloTestCmp;
         "my-component": MyComponent;
     }
 }
@@ -55,6 +86,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "hylo-nav-bar": LocalJSX.HyloNavBar & JSXBase.HTMLAttributes<HTMLHyloNavBarElement>;
+            "hylo-test-cmp": LocalJSX.HyloTestCmp & JSXBase.HTMLAttributes<HTMLHyloTestCmpElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
