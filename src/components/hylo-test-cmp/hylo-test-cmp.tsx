@@ -46,7 +46,7 @@ export class HyloTestCmp {
 
           </my-todo-list>
         </article>
-        <p class="text-yellow-800">Hdfidfg</p>
+        <p class="text-yellow-500">Hdfidfg</p>
       </Host>
     );
   }
