@@ -10,7 +10,7 @@ export type Todo = {
 
 @Component({
   tag: 'my-todo-list',
-  shadow: true,
+  // shadow: true,
 })
 export class MyTodoList {
   @State() todos: Todo[] = [

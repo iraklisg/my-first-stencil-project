@@ -1,11 +1,11 @@
 import {
-  Component, Host, h, State, Prop, Watch,
+  Component, Host, h, State, Prop,
 } from '@stencil/core';
 
 @Component({
   tag: 'my-counter',
   styleUrl: 'my-counter.css',
-  shadow: true,
+  // shadow: true,
 })
 export class MyCounter {
   timer: number;
@@ -19,17 +19,17 @@ export class MyCounter {
   //   this.count = this.initialCount;
   // }
 
-  connectedCallback() {
-    console.log('connectedCallback', this.initialCount, this.count);
-  }
+  // connectedCallback() {
+  //   console.log('connectedCallback', this.initialCount, this.count);
+  // }
 
-  componentWillUpdate() {
-    console.log('componentWillUpdate', this.initialCount, this.count);
-  }
+  // componentWillUpdate() {
+  //   console.log('componentWillUpdate', this.initialCount, this.count);
+  // }
 
-  componentWillLoad() {
-    console.log('componentWillLoad', this.initialCount, this.count);
-  }
+  // componentWillLoad() {
+  //   console.log('componentWillLoad', this.initialCount, this.count);
+  // }
 
   render() {
     return (

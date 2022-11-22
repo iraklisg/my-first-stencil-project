@@ -32,9 +32,6 @@ export namespace Components {
     interface MyCounter {
         "initialCount": number;
     }
-    interface MyInput {
-        "value": string;
-    }
     interface MyTimer {
     }
     interface MyTodoList {
@@ -69,12 +66,6 @@ declare global {
         prototype: HTMLMyCounterElement;
         new (): HTMLMyCounterElement;
     };
-    interface HTMLMyInputElement extends Components.MyInput, HTMLStencilElement {
-    }
-    var HTMLMyInputElement: {
-        prototype: HTMLMyInputElement;
-        new (): HTMLMyInputElement;
-    };
     interface HTMLMyTimerElement extends Components.MyTimer, HTMLStencilElement {
     }
     var HTMLMyTimerElement: {
@@ -92,7 +83,6 @@ declare global {
         "hylo-test-cmp": HTMLHyloTestCmpElement;
         "my-component": HTMLMyComponentElement;
         "my-counter": HTMLMyCounterElement;
-        "my-input": HTMLMyInputElement;
         "my-timer": HTMLMyTimerElement;
         "my-todo-list": HTMLMyTodoListElement;
     }
@@ -122,9 +112,6 @@ declare namespace LocalJSX {
     interface MyCounter {
         "initialCount"?: number;
     }
-    interface MyInput {
-        "value"?: string;
-    }
     interface MyTimer {
     }
     interface MyTodoList {
@@ -135,7 +122,6 @@ declare namespace LocalJSX {
         "hylo-test-cmp": HyloTestCmp;
         "my-component": MyComponent;
         "my-counter": MyCounter;
-        "my-input": MyInput;
         "my-timer": MyTimer;
         "my-todo-list": MyTodoList;
     }
@@ -148,7 +134,6 @@ declare module "@stencil/core" {
             "hylo-test-cmp": LocalJSX.HyloTestCmp & JSXBase.HTMLAttributes<HTMLHyloTestCmpElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "my-counter": LocalJSX.MyCounter & JSXBase.HTMLAttributes<HTMLMyCounterElement>;
-            "my-input": LocalJSX.MyInput & JSXBase.HTMLAttributes<HTMLMyInputElement>;
             "my-timer": LocalJSX.MyTimer & JSXBase.HTMLAttributes<HTMLMyTimerElement>;
             "my-todo-list": LocalJSX.MyTodoList & JSXBase.HTMLAttributes<HTMLMyTodoListElement>;
         }

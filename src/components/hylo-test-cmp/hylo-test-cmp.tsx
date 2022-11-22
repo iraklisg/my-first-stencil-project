@@ -1,12 +1,12 @@
 import {
-  Component, Host, h, State, Watch,
+  Component, Host, h, State,
 } from '@stencil/core';
 import { Todo } from '../my-todo-list/my-todo-list';
 
 @Component({
   tag: 'hylo-test-cmp',
   styleUrl: 'hylo-test-cmp.css',
-  shadow: true,
+  // shadow: true,
 })
 export class HyloTestCmp {
   foo = { id: 33 };
@@ -15,17 +15,17 @@ export class HyloTestCmp {
 
   @State() count = 0;
 
-  connectedCallback() {
-    this.timer = window.setInterval(() => {
-      // the assignment to `this.currentTime`
-      // will trigger a re-render
-      this.count += 1;
-    }, 1000);
-  }
+  // connectedCallback() {
+  //   this.timer = window.setInterval(() => {
+  //     // the assignment to `this.currentTime`
+  //     // will trigger a re-render
+  //     this.count += 1;
+  //   }, 1000);
+  // }
 
-  disconnectedCallback() {
-    window.clearInterval(this.timer);
-  }
+  // disconnectedCallback() {
+  //   window.clearInterval(this.timer);
+  // }
 
   render() {
     return (
@@ -46,6 +46,7 @@ export class HyloTestCmp {
 
           </my-todo-list>
         </article>
+        <p class="text-yellow-800">Hdfidfg</p>
       </Host>
     );
   }
