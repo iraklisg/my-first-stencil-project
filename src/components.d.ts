@@ -32,6 +32,9 @@ export namespace Components {
     interface MyCounter {
         "initialCount": number;
     }
+    interface MyGoogleMap {
+        "apiKey": string;
+    }
     interface MyTimer {
     }
     interface MyTodoList {
@@ -66,6 +69,12 @@ declare global {
         prototype: HTMLMyCounterElement;
         new (): HTMLMyCounterElement;
     };
+    interface HTMLMyGoogleMapElement extends Components.MyGoogleMap, HTMLStencilElement {
+    }
+    var HTMLMyGoogleMapElement: {
+        prototype: HTMLMyGoogleMapElement;
+        new (): HTMLMyGoogleMapElement;
+    };
     interface HTMLMyTimerElement extends Components.MyTimer, HTMLStencilElement {
     }
     var HTMLMyTimerElement: {
@@ -83,6 +92,7 @@ declare global {
         "hylo-test-cmp": HTMLHyloTestCmpElement;
         "my-component": HTMLMyComponentElement;
         "my-counter": HTMLMyCounterElement;
+        "my-google-map": HTMLMyGoogleMapElement;
         "my-timer": HTMLMyTimerElement;
         "my-todo-list": HTMLMyTodoListElement;
     }
@@ -112,6 +122,9 @@ declare namespace LocalJSX {
     interface MyCounter {
         "initialCount"?: number;
     }
+    interface MyGoogleMap {
+        "apiKey"?: string;
+    }
     interface MyTimer {
     }
     interface MyTodoList {
@@ -122,6 +135,7 @@ declare namespace LocalJSX {
         "hylo-test-cmp": HyloTestCmp;
         "my-component": MyComponent;
         "my-counter": MyCounter;
+        "my-google-map": MyGoogleMap;
         "my-timer": MyTimer;
         "my-todo-list": MyTodoList;
     }
@@ -134,6 +148,7 @@ declare module "@stencil/core" {
             "hylo-test-cmp": LocalJSX.HyloTestCmp & JSXBase.HTMLAttributes<HTMLHyloTestCmpElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "my-counter": LocalJSX.MyCounter & JSXBase.HTMLAttributes<HTMLMyCounterElement>;
+            "my-google-map": LocalJSX.MyGoogleMap & JSXBase.HTMLAttributes<HTMLMyGoogleMapElement>;
             "my-timer": LocalJSX.MyTimer & JSXBase.HTMLAttributes<HTMLMyTimerElement>;
             "my-todo-list": LocalJSX.MyTodoList & JSXBase.HTMLAttributes<HTMLMyTodoListElement>;
         }
