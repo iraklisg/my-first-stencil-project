@@ -123,7 +123,7 @@ declare namespace LocalJSX {
         "initialCount"?: number;
     }
     interface MyGoogleMap {
-        "apiKey"?: string;
+        "apiKey": string;
     }
     interface MyTimer {
     }
